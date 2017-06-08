@@ -9,6 +9,7 @@ Redmine::Plugin.register :redmine_tasks_scheduler do
   author 'eduardobogoni@gmail.com'
   description 'Scheduler for rake tasks on Redmine.'
   version '0.0.1'
+  settings default: { 'daemon_autostart' => '1' }, partial: 'settings/redmine_tasks_scheduler'
 end
 
 Rails.configuration.to_prepare do
