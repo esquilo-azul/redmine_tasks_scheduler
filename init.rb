@@ -27,7 +27,7 @@ Rails.configuration.to_prepare do
               caption: '', last: true, if: proc { GroupPermission.permission?('scheduled_tasks') }
   end
   if ::RedmineTasksScheduler::Settings.daemon_autostart &&
-     ::RedmineTasksScheduler::DispatcherFinder.dispatcher &&
+     ::RedmineNonprojectModules::DispatcherFinder.dispatcher &&
      !::TasksScheduler::Daemon.running?
     ::TasksScheduler::Daemon.execute('start')
   end
