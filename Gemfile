@@ -1,1 +1,1 @@
-gem 'tasks_scheduler', '~> 0.0.5'
+gem 'tasks_scheduler', '~> 0.0.6'
