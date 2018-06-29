@@ -2,10 +2,10 @@ module RedmineTasksScheduler
   module Hooks
     class AddAssets < Redmine::Hook::ViewListener
       def view_layouts_base_html_head(_context = {})
-        stylesheet_tag <<
-          stylesheet_link_tag(:application, plugin: 'redmine_tasks_scheduler') <<
-          javascript_include_tag(:application, plugin: 'redmine_tasks_scheduler') <<
-          init_alert
+        safe_join([stylesheet_tag,
+                   stylesheet_link_tag(:application, plugin: 'redmine_tasks_scheduler'),
+                   javascript_include_tag(:application, plugin: 'redmine_tasks_scheduler'),
+                   init_alert])
       end
 
       private
@@ -15,12 +15,10 @@ module RedmineTasksScheduler
       end
 
       def init_alert
-        raw(<<EOS)
-<script>
+        javascript_tag(<<EOS)
   TasksScheduler.Alert.init('#{running_tasks_scheduler_daemon_path}', {
     element_selector: '.tasks-scheduler-alert'
   });
-</script>
 EOS
       end
     end
