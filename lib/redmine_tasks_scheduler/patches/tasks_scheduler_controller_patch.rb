@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RedmineTasksScheduler
   module Patches
     module TasksSchedulerControllerPatch
@@ -6,7 +8,7 @@ module RedmineTasksScheduler
           unloadable
 
           require_permission 'scheduled_tasks'
-          layout 'admin_with_active_scaffold'
+          layout 'admin_active_scaffold'
         end
       end
     end
