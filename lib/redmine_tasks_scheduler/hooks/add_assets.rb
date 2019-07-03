@@ -16,7 +16,7 @@ module RedmineTasksScheduler
 
       def init_alert
         javascript_tag(<<EOS)
-  TasksScheduler.Alert.init('#{running_tasks_scheduler_daemon_path}', {
+  TasksScheduler.Alert.init('#{status_tasks_scheduler_daemon_path}', {
     element_selector: '.tasks-scheduler-alert'
   });
 EOS
