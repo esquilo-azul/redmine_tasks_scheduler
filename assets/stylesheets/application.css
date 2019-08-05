@@ -7,3 +7,8 @@
   padding-bottom: 3px;
   display: none;
 }
+
+#top-menu .alert_daemon_stopped,
+#top-menu .alert_task_failed {
+  display: initial;
+}

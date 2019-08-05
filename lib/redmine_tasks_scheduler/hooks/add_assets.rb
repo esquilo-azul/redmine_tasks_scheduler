@@ -4,6 +4,7 @@ module RedmineTasksScheduler
       def view_layouts_base_html_head(_context = {})
         safe_join([stylesheet_tag,
                    stylesheet_link_tag(:application, plugin: 'redmine_tasks_scheduler'),
+                   tasks_scheduler_javascript_tag,
                    javascript_include_tag(:application, plugin: 'redmine_tasks_scheduler'),
                    init_alert])
       end
@@ -14,9 +15,13 @@ module RedmineTasksScheduler
         tag('link', media: 'all', rel: 'stylesheet', href: asset_path('assets/tasks_scheduler.css'))
       end
 
+      def tasks_scheduler_javascript_tag
+        content_tag('script', "\n", src: asset_path('assets/tasks_scheduler.js'))
+      end
+
       def init_alert
         javascript_tag(<<EOS)
-  TasksScheduler.Alert.init('#{status_tasks_scheduler_daemon_path}', {
+  TasksScheduler.Alert.init({
     element_selector: '.tasks-scheduler-alert'
   });
 EOS
