@@ -8,7 +8,7 @@ module RedmineTasksScheduler
           unloadable
 
           require_permission 'scheduled_tasks'
-          layout 'admin_active_scaffold'
+          layout 'admin'
         end
       end
     end

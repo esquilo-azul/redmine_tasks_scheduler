@@ -1,3 +1,5 @@
+//= require 'tasks_scheduler'
+
 _A = TasksScheduler.Alert;
 _A.refresh = function () {
   $.ajax({
@@ -16,3 +18,7 @@ _A.refresh = function () {
     }
   });
 };
+
+TasksScheduler.Alert.init({
+  element_selector: '.tasks-scheduler-alert'
+});
