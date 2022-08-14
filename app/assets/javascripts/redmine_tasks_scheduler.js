@@ -11,6 +11,7 @@ function addGlobalFalseToAjaxDataFunction(obj, functionName) {
 }
 
 addGlobalFalseToAjaxDataFunction(TasksScheduler.Alert, 'refreshAjaxData');
+addGlobalFalseToAjaxDataFunction(TasksScheduler.Status, 'updateAjaxData');
 
 TasksScheduler.Alert.init({
   element_selector: '.tasks-scheduler-alert'
