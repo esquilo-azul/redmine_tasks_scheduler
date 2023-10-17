@@ -6,8 +6,6 @@ module RedmineTasksScheduler
       def self.included(base)
         base.const_set('PERMISSIONS', 'scheduled_tasks')
         base.class_eval do
-          unloadable
-
           require_permission const_get('PERMISSIONS')
           layout 'admin'
           helper :scheduled_tasks
