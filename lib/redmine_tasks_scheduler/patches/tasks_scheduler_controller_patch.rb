@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
+require 'redmine_tasks_scheduler/permissions'
+
 module RedmineTasksScheduler
   module Patches
     module TasksSchedulerControllerPatch
       def self.included(base)
-        base.const_set('PERMISSIONS', 'scheduled_tasks')
+        base.const_set('PERMISSIONS', ::RedmineTasksScheduler::Permissions::WRITE)
         base.class_eval do
           require_permission const_get('PERMISSIONS')
           layout 'admin'
