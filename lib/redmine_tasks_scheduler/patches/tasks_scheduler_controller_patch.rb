@@ -9,7 +9,7 @@ module RedmineTasksScheduler
         base.const_set('PERMISSIONS', ::RedmineTasksScheduler::Permissions::WRITE)
         base.class_eval do
           require_permission const_get('PERMISSIONS')
-          layout 'admin'
+          layout 'nonproject_modules'
           helper :scheduled_tasks
         end
       end
