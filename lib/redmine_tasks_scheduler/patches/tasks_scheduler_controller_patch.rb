@@ -18,10 +18,10 @@ module RedmineTasksScheduler
   end
 end
 
-return unless ::RedminePluginsHelper::Available.database_schema?
+return unless RedminePluginsHelper::Available.database_schema?
 
-[::ScheduledTasksController, ::TasksSchedulerDaemonController].each do |controller_class|
-  patch_class = ::RedmineTasksScheduler::Patches::TasksSchedulerControllerPatch
+[ScheduledTasksController, TasksSchedulerDaemonController].each do |controller_class|
+  patch_class = RedmineTasksScheduler::Patches::TasksSchedulerControllerPatch
   unless controller_class.included_modules.include?(patch_class)
     controller_class.send(:include, patch_class)
   end
