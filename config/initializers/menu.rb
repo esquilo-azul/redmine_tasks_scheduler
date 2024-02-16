@@ -8,7 +8,7 @@ Redmine::Plugin.by_path(__FILE__).nonprojects_menu do |menu|
     scheduled_tasks: { controller: 'scheduled_tasks', action: 'index', id: nil }
   }.each do |k, v|
     menu.push k, v,
-              caption: "eac_rails_utils.menus.root.admin.tasks_scheduler.main_app_#{k}".to_sym,
+              caption: :"eac_rails_utils.menus.root.admin.tasks_scheduler.main_app_#{k}",
               if: proc { GroupPermission.permission?(RedmineTasksScheduler::Permissions::WRITE) }
   end
 end
